@@ -12,7 +12,7 @@ phases:
       - echo $(gradle -v)
   build:
     commands:
-      - echo Entered the build phase ($(pwd))...
+      - echo Entered the build phase ...
       - ./gradlew jar
       - ./gradlew unitTest
 
