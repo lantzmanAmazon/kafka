@@ -6,7 +6,7 @@ phases:
       - echo Entered the install phase...
       - apt-get -y update
       - apt-get -y upgrade
-      - apt-get -y apt upgrade gradle
+      - apt -y upgrade gradle
       - echo $(java -version)
       - echo $(gradle -v)
   build:
