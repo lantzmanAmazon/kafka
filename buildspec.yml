@@ -4,9 +4,10 @@ phases:
   install:
     commands:
       - echo Entered the install phase...
+      - add-apt-repository ppa:cwchien/gradle
       - apt-get -y update
       - apt-get -y upgrade
-      - apt -y upgrade gradle
+      - apt-get -y install gradle-4.8
       - echo $(java -version)
       - echo $(gradle -v)
   build:
