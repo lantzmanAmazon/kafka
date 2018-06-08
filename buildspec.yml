@@ -1,0 +1,25 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo Entered the install phase...
+      - apt-get -y update
+      - apt-get -y upgrade
+      - apt-get -y install openjdk-8-jdk wget unzip
+      - echo $(java -version)
+      - wget https://services.gradle.org/distributions/gradle-3.4.1-bin.zip
+      - mkdir /opt/gradle
+      - unzip -d /opt/gradle gradle-3.4.1-bin.zip
+      - export PATH=$PATH:/opt/gradle/gradle-3.4.1/bin
+      - echo $(gradle -v)
+  build:
+    commands:
+      - ./gradle
+      - ./gradlew jar
+      - ./gradlew unitTest
+
+artifacts:
+  files:
+    - build/libs/kafka-2.0.0-SNAPSHOT.jar
+  discard-paths: yes
