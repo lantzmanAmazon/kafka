@@ -6,15 +6,12 @@ phases:
       - echo Entered the install phase...
       - apt-get -y update
       - apt-get -y upgrade
-      - apt-get -y install openjdk-8-jdk wget unzip
+      - apt-get -y apt upgrade gradle
       - echo $(java -version)
-      - wget https://services.gradle.org/distributions/gradle-3.4.1-bin.zip
-      - mkdir /opt/gradle
-      - unzip -d /opt/gradle gradle-3.4.1-bin.zip
-      - export PATH=$PATH:/opt/gradle/gradle-3.4.1/bin
       - echo $(gradle -v)
   build:
     commands:
+      - echo Entered the build phase...
       - ./gradle
       - ./gradlew jar
       - ./gradlew unitTest
